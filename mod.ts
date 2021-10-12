@@ -14,7 +14,7 @@ switch (Deno.build.os) {
 
 const libName = `target/debug/libdeno_ffi.${ext}`;
 // Open library and define exported symbols
-const dylib = Deno.dlopen(libName, {
+const dylibRs = Deno.dlopen(libName, {
     add: {
         parameters: ["isize", "isize"],
         result: "isize"
@@ -25,10 +25,22 @@ const dylib = Deno.dlopen(libName, {
     }
 });
 
+// Open library and define exported symbols
+const dylibC = Deno.dlopen(`target/lib_add.${ext}`, {
+    add: {
+        parameters: ["isize", "isize"],
+        result: "isize"
+    }
+});
+
 export function add(a: number, b: number): number {
-    return dylib.symbols.add(a, b) as number;
+    return dylibRs.symbols.add(a, b) as number;
 }
 
 export function printBuffer(buffer: Uint8Array) {
-    dylib.symbols.print_buffer(buffer, buffer.length);
+    dylibRs.symbols.print_buffer(buffer, buffer.length);
+}
+
+export function add2(a: number, b: number): number {
+    return dylibC.symbols.add(a, b) as number;
 }
