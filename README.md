@@ -18,4 +18,4 @@ pub extern "C" fn print_buffer(ptr: *const u8, len: usize) {
 # References
 
 * Foreign Function Interface API: https://deno.land/manual@v1.15.0/runtime/ffi_api
-* https://github.com/littledivy/deno_bindgen
+* deno_bindgen: simplify glue code generation for Deno FFI libraries written in Rust https://github.com/littledivy/deno_bindgen
