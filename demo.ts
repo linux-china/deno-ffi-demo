@@ -1,11 +1,5 @@
-import {add, add2, printBuffer} from "./mod.ts";
-import {sum} from "./bindings/bindings.ts";
+import {add, sayHello} from "./mod.ts";
 
 console.log(add(35, 34));
-console.log(add2(35, 34));
 
-const buffer = new Uint8Array([1, 2, 3, 4, 5, 6, 7, 8]);
-printBuffer(buffer);
-
-// deno_bindgen
-console.log(sum({a: 1, b: 2, c: "Hi"}));
+sayHello("雷卷")
