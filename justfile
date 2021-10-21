@@ -2,7 +2,7 @@ build: c-build
   cargo build
 
 run:
-  deno run --allow-ffi --unstable demo.ts
+  deno run -A --unstable demo.ts
 
 c-build:
   cc -c -o add.o add.c
