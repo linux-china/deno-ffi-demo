@@ -1,8 +1,10 @@
+#!/usr/bin/env just --justfile
+
 build: c-build
   deno_bindgen --release
 
 run:
-  deno run -A --unstable demo.ts
+  deno run -A --no-check --unstable demo.ts
 
 c-build:
   cc -c -o add.o add.c
