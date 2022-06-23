@@ -13,8 +13,6 @@ pub extern "C" fn print_buffer(ptr: *const u8, len: usize) {
 }
 ```
 
-**buffers-as-return-value**: plan to support this feature in the coming releases.
-
 # References
 
 * Foreign Function Interface API: https://deno.land/manual@v1.23.0/runtime/ffi_api
