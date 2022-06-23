@@ -6,6 +6,9 @@ build: c-build
 run:
   deno run -A --unstable demo.ts
 
+callback:
+  deno run -A --unstable callback-demo.ts
+
 c-build:
   cc -c -o add.o add.c
   mkdir -p target
