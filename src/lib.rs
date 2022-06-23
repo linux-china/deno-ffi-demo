@@ -14,9 +14,9 @@ fn sum(input: Input) -> i32 {
 }
 
 // say hello
-#[deno_bindgen()]
+#[deno_bindgen]
 pub fn say_hello(message: &str) {
-    println!("Hello {}", message);
+    println!("Hello {}!", message);
 }
 
 #[cfg(test)]
