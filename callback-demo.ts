@@ -1,15 +1,14 @@
-function ptr(v: any): bigint {
-    return Deno.UnsafePointer.of(v);
-}
-
 type i32 = number;
 
 const dylib = Deno.dlopen("./target/lib_add.dylib", {
     "store_function": {
         parameters: ["function"],
         result: "void",
+        callback: true,
     },
 });
+
+const {symbols: {store_function}} = dylib;
 
 // callback function
 function queueCallback(id: i32) {
@@ -21,7 +20,7 @@ const queueCallbackResource = new Deno.UnsafeCallback({
     result: "void",
 }, queueCallback);
 
-dylib.symbols.store_function(ptr(queueCallbackResource));
+store_function(queueCallbackResource.pointer);
 // After done
 dylib.close();
 queueCallbackResource.close();
