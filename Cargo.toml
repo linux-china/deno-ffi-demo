@@ -8,6 +8,6 @@ edition = "2021"
 crate-type = ["cdylib"]
 
 [dependencies]
-deno_bindgen = "0.5"
+deno_bindgen = "0.7"
 serde = { version = "1", feature = ["derive"] }
 serde_json = "1"
