@@ -1,7 +1,7 @@
 #!/usr/bin/env just --justfile
 
 build: c-build
-  deno run -A https://deno.land/x/deno_bindgen@0.7.0/cli.ts --release
+  deno run -A https://deno.land/x/deno_bindgen@0.8.1/cli.ts --release
 
 run:
   deno run -A --unstable demo.ts
